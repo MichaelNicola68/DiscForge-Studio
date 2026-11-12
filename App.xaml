@@ -1,0 +1,15 @@
+<Application x:Class="DiscForgeStudio.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <SolidColorBrush x:Key="WindowBackground" Color="#07101E"/>
+    <SolidColorBrush x:Key="PanelBrush" Color="#101B2D"/>
+    <SolidColorBrush x:Key="PanelAltBrush" Color="#0B1423"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#24344C"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#38D9E6"/>
+    <SolidColorBrush x:Key="TextBrush" Color="#F1F5F9"/>
+    <SolidColorBrush x:Key="MutedBrush" Color="#94A3B8"/>
+    <Style TargetType="Button">
+      <Setter Property="Foreground" Value="#07101E"/><Setter Property="Background" Value="{StaticResource AccentBrush}"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Padding" Value="16,10"/><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="Cursor" Value="Hand"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border Background="{TemplateBinding Background}" CornerRadius="10" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border></ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Foreground" Value="{StaticResource TextBrush}"/><Setter Property="Background" Value="#1B2A40"/></Style>
+  </Application.Resources>
+</Application>

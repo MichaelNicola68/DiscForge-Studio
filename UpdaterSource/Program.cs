@@ -1,0 +1,27 @@
+﻿using System.Diagnostics;
+using System.IO.Compression;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+var tempLog=Path.Combine(Path.GetTempPath(),"DiscForge-External-Updater-V7.log");
+void Log(string text){try{File.AppendAllText(tempLog,DateTime.Now.ToString("O")+" | "+text+Environment.NewLine,Encoding.UTF8);}catch{}}
+Log("PROCESS STARTED; args="+args.Length+"; "+string.Join(" | ",args.Select((x,i)=>$"[{i}]={x}")));
+string? rootLog=null; string? app=null;
+try{
+ if(args.Length!=4){Log("FAIL: expected 4 args");return 2;} if(args[0]!="--apply"){Log("FAIL: command mismatch");return 2;}
+ var package=Path.GetFullPath(args[1]);app=Path.GetFullPath(args[2]);if(!int.TryParse(args[3],out var pid)){Log("FAIL: pid invalid");return 3;}
+ var root=Path.GetDirectoryName(app)!;var logs=Path.Combine(root,"Update-Backups");Directory.CreateDirectory(logs);rootLog=Path.Combine(logs,"External-Updater-Last.log");
+ void RootLog(string t){File.AppendAllText(rootLog,DateTime.Now.ToString("O")+" | "+t+Environment.NewLine,Encoding.UTF8);Log(t);}
+ RootLog("BOOTSTRAP OK");RootLog("Package="+package+" exists="+File.Exists(package));RootLog("App="+app+" exists="+File.Exists(app));RootLog("Pid="+pid);
+ try{var p=Process.GetProcessById(pid);RootLog("WAITING FOR APP EXIT");if(!p.WaitForExit(30000))throw new TimeoutException("DiscForge wurde nicht innerhalb von 30 Sekunden beendet.");RootLog("APP EXIT CONFIRMED");}catch(ArgumentException){RootLog("APP PROCESS ALREADY EXITED");}
+ using var zip=ZipFile.OpenRead(package);RootLog("ZIP OPENED; entries="+zip.Entries.Count);var me=zip.Entries.FirstOrDefault(e=>e.FullName.EndsWith("patch-manifest.json",StringComparison.OrdinalIgnoreCase))??throw new InvalidDataException("Manifest fehlt.");RootLog("MANIFEST ENTRY="+me.FullName);
+ using var sr=new StreamReader(me.Open(),Encoding.UTF8,true);var json=sr.ReadToEnd();var m=JsonSerializer.Deserialize<Manifest>(json,new JsonSerializerOptions{PropertyNameCaseInsensitive=true})??throw new InvalidDataException("Manifest unlesbar.");RootLog("PROFILE="+m.TestProfile+" PATCH="+m.PatchId+" FILES="+m.Files.Count);
+ if(m.TestProfile!="ExternalExecutableRollbackTest")throw new InvalidOperationException("Paket nicht fuer externen Updater freigegeben.");
+ var backup=Path.Combine(root,"Update-Backups",Safe(m.PatchId)+"-"+DateTime.Now.ToString("yyyyMMdd-HHmmss"));Directory.CreateDirectory(backup);RootLog("BACKUP="+backup);var journal=new List<(string target,string? saved,bool added)>();
+ try{var zr=me.FullName.Replace('\\','/').Split('/')[0];foreach(var f in m.Files){var rel=f.Path.Replace('\\','/');RootLog("FILE="+rel+" OP="+f.Operation);if(!rel.Equals("DiscForgeStudio.exe",StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Nicht freigegebener EXE-Updatepfad: "+rel);var target=Path.GetFullPath(Path.Combine(root,rel.Replace('/',Path.DirectorySeparatorChar)));RootLog("TARGET="+target+" exists="+File.Exists(target));var entry=zip.Entries.FirstOrDefault(e=>e.FullName.Replace('\\','/').Equals(zr+"/payload/"+rel,StringComparison.OrdinalIgnoreCase))??throw new InvalidDataException("Payload fehlt: "+rel);var staged=Path.Combine(backup,"staged",rel.Replace('/',Path.DirectorySeparatorChar));Directory.CreateDirectory(Path.GetDirectoryName(staged)!);entry.ExtractToFile(staged,true);Verify(staged,f.NewSha256);RootLog("PAYLOAD EXTRACTED AND VERIFIED");if(f.Operation.Equals("Replace",StringComparison.OrdinalIgnoreCase)){Verify(target,f.OldSha256);var saved=Path.Combine(backup,"original",rel.Replace('/',Path.DirectorySeparatorChar));Directory.CreateDirectory(Path.GetDirectoryName(saved)!);File.Copy(target,saved,true);File.Copy(staged,target,true);journal.Add((target,saved,false));}else throw new InvalidOperationException("Nur REPLACE von DiscForgeStudio.exe ist im DEV17-EXE-Test freigegeben.");Verify(target,f.NewSha256);RootLog("TARGET UPDATED AND VERIFIED");throw new InvalidOperationException("Absichtlich ausgeloester DEV17-EXE-Rollback-Testfehler nach bestaetigtem EXE-Austausch.");}File.WriteAllText(Path.Combine(backup,"external-update-report.txt"),"SUCCESS\n"+m.PatchId+"\n"+DateTime.Now.ToString("O"));RootLog("SUCCESS");}
+ catch(Exception ex){RootLog("INSTALL FAILURE="+ex);foreach(var j in journal.AsEnumerable().Reverse()){if(j.added){if(File.Exists(j.target))File.Delete(j.target);}else if(j.saved!=null)File.Copy(j.saved,j.target,true);}RootLog("ROLLBACK FINISHED");throw;}
+ RootLog("RESTARTING APP");Process.Start(new ProcessStartInfo(app){UseShellExecute=true,WorkingDirectory=root});RootLog("APP RESTART REQUESTED");return 0;
+}catch(Exception ex){Log("FATAL="+ex);try{if(rootLog!=null)File.AppendAllText(rootLog,DateTime.Now.ToString("O")+" | FATAL="+ex+Environment.NewLine,Encoding.UTF8);}catch{}try{if(!string.IsNullOrWhiteSpace(app)&&File.Exists(app))Process.Start(new ProcessStartInfo(app){UseShellExecute=true,WorkingDirectory=Path.GetDirectoryName(app)!});}catch{}return 1;}
+static void Verify(string p,string h){if(!File.Exists(p))throw new FileNotFoundException(p);var a=Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(p)));if(!a.Equals(h,StringComparison.OrdinalIgnoreCase))throw new InvalidDataException("SHA-256 falsch: "+p+" expected="+h+" actual="+a);}
+static string Safe(string? v)=>string.Concat((v??"unknown").Select(c=>Path.GetInvalidFileNameChars().Contains(c)?'_':c));
+sealed record Manifest(string PatchId,string TestProfile,List<FileItem> Files);sealed record FileItem(string Path,string Operation,string OldSha256,string NewSha256);

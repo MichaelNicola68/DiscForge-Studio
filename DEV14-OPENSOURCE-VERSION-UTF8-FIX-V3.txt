@@ -1,0 +1,6 @@
+﻿DiscForge Studio DEV14 - Open-Source-Version und UTF-8-Fix V3
+Installiert: 2026-11-10 16:30:07
+Version: 1.5.0-alpha.2-dev.14
+Versionsanzeige: dynamisch Ã¼ber ApplicationVersionService.ProductLabel
+Homepage: https://www.saaross.de
+Sicherung: G:\DiscForge Studio 1.5\Entwicklungs-Backups\Dev14-OpenSource-Version-UTF8-Fix-V3\20261110-162940

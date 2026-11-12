@@ -1,0 +1,4 @@
+﻿Installiert: 2026-11-09 17:29:19
+Version: 1.5.0-alpha.2-dev.13
+Sicherung: G:\DiscForge Studio 1.5\Entwicklungs-Backups\Dev13-UpdateCenter-Kompaktansicht-V4\20261109-172851
+Installation bleibt gesperrt.

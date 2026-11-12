@@ -1,0 +1,13 @@
+﻿DiscForge Studio DEV18 Arbeitsstand
+Angelegt: 2026-11-11 18:45:03
+Quelle: stabiler DEV17-update1-Stand
+Ziel: G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18
+Neue Arbeitsversion: 1.5.0-alpha.2-dev.18
+Geaenderte Textdateien: 37
+Der stabile Quellordner bleibt unveraendert.
+Naechstes Ziel: kontrollierter MSI-Upgradetest.
+
+Build Hauptprogramm: bestanden
+Publish Hauptprogramm: bestanden
+Publish externer Updater: bestanden
+Dateien in DEV18: 1043

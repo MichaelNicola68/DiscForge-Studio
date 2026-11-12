@@ -1,0 +1,15 @@
+﻿DiscForge Studio 1.0.0
+
+Projektidee, Konzeption und Projektleitung: Michael Nicola
+Kontakt: NicolaMichael@gmx.de
+
+Technische Umsetzung:
+KI-gestuetzt mit Microsoft 365 Copilot, unter menschlicher Vorgabe, Pruefung,
+Auswahl, Erprobung und Weiterentwicklung durch Michael Nicola.
+
+Copyright (C) 2026 Michael Nicola
+SPDX-License-Identifier: GPL-3.0-or-later
+
+Microsoft 365 Copilot wird nicht als Urheber oder Copyright-Inhaber genannt.
+Das Programm wird ohne Gewaehrleistung bereitgestellt. Die vollstaendigen
+Bedingungen stehen im GPL-Lizenzfenster und in LICENSE.txt.

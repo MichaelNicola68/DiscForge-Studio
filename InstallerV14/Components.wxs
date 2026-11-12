@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="ApplicationFiles" Directory="INSTALLFOLDER">
+      <Component Id="CMP_B8D54A3585832E87FF0E6A8B" Directory="INSTALLFOLDER" Guid="*">
+        <File Id="FIL_B8D54A3585832E87FF0E6A8B" Source="G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18\publish\win-x64\DiscForgeStudio.exe" KeyPath="yes" />
+      </Component>
+      <Component Id="CMP_0761E3DCB157482E9C7D9A87" Directory="DIR_CAF9F906B16A91CB0160C50A" Guid="*">
+        <File Id="FIL_0761E3DCB157482E9C7D9A87" Source="G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18\publish\win-x64\Documentation\DiscForge-Studio-1.5-Bedienungsanleitung.pdf" />
+      </Component>
+      <Component Id="CMP_712FE7F3C6B6DAD0D5ED7B24" Directory="DIR_CAF9F906B16A91CB0160C50A" Guid="*">
+        <File Id="FIL_712FE7F3C6B6DAD0D5ED7B24" Source="G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18\publish\win-x64\Documentation\LICENSE.txt" />
+      </Component>
+      <Component Id="CMP_AC9A23A1203830B739FB69E4" Directory="DIR_CAF9F906B16A91CB0160C50A" Guid="*">
+        <File Id="FIL_AC9A23A1203830B739FB69E4" Source="G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18\publish\win-x64\Documentation\OPEN-SOURCE-SOFTWARE.txt" />
+      </Component>
+      <Component Id="CMP_4E37E97946942AE34DEAE662" Directory="DIR_196C23750E800642E7C008DC" Guid="*">
+        <File Id="FIL_4E37E97946942AE34DEAE662" Source="G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18\publish\win-x64\Updater\DiscForgeUpdater.exe" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="DIR_196C23750E800642E7C008DC" Name="Updater" />
+    </DirectoryRef>
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Directory Id="DIR_CAF9F906B16A91CB0160C50A" Name="Documentation" />
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="StartMenuShortcutComponent" Guid="*">
+        <Shortcut Target="[INSTALLFOLDER]DiscForgeStudio.exe" Description="DiscForge Studio starten" Name="DiscForge Studio" Id="StartMenuShortcut" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Value="1" Name="StartMenuShortcut" Root="HKCU" KeyPath="yes" Type="integer" Key="Software\SaarOSS\DiscForge Studio" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcutComponent" Guid="*">
+        <Shortcut Target="[INSTALLFOLDER]DiscForgeStudio.exe" Description="DiscForge Studio starten" Name="DiscForge Studio" Id="DesktopShortcut" WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue Value="1" Name="DesktopShortcut" Root="HKCU" KeyPath="yes" Type="integer" Key="Software\SaarOSS\DiscForge Studio" />
+      </Component>
+    </StandardDirectory>
+  </Fragment>
+</Wix>

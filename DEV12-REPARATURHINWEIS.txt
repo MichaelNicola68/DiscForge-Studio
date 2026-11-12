@@ -1,0 +1,8 @@
+DiscForge Studio 1.5.0-alpha.2-dev.12
+Reparaturstand vom 9. November 2026
+
+Korrekturen:
+- Fehlerhafte UTF-8-Darstellung bei „Schutzmaßnahme“, „unvollständige“ und „ausgeführt“ beseitigt.
+- Schutzstatus verständlich formuliert, wenn eine Schutzmaßnahme vermutet, aber nicht eindeutig bestimmbar ist.
+- Fortschrittsbalken wird nach dem Schutzabbruch ausgeblendet und beim Aktualisieren der Disc wieder eingeblendet.
+- Versionsangabe auf 1.5.0-alpha.2-dev.12 erhöht.

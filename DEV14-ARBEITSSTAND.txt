@@ -1,0 +1,8 @@
+﻿DiscForge Studio 1.5.0-alpha.2-dev.14
+Arbeitskopie aus dem stabilen Stand 1.5.0-alpha.2-dev.13
+Erstellt: 2026-11-09 17:44:19
+
+DEV13 bleibt unveraendert.
+Update-Center-Kompaktansicht V4 wurde uebernommen.
+Build-Ausgaben, entpackte Patchwerkzeuge und deaktivierte Doppeldateien wurden nicht kopiert.
+Naechstes geplantes Thema: sichere Update-Installation zuerst vollstaendig konzipieren.

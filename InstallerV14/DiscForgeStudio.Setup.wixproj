@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="WixToolset.Sdk/6.0.2">
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <Platform>x64</Platform>
+    <OutputName>DiscForge-Studio-1.5.0-alpha.2-dev.18-win-x64-SaarOSS-Setup</OutputName>
+    <OutputPath>G:\DiscForge Studio 1.5\DiscForge-Studio-1.5.0-alpha.2-dev.18\InstallerOutputV14\</OutputPath>
+    <Cultures>de-DE</Cultures>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="6.0.2" />
+  </ItemGroup>
+</Project>

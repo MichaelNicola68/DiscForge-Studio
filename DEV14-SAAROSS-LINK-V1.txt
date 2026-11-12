@@ -1,0 +1,8 @@
+﻿DiscForge Studio DEV14 - SaarOSS-Link V1
+Installiert: 2026-11-10 16:23:43
+Version: 1.5.0-alpha.2-dev.14
+Homepage: https://www.saaross.de
+Alter Datei-SHA-256: A9343407E3F55DF7284D92AC9DA4C1821AA89F8EC7625389CB6BDBB53D0BCF60
+Neuer Datei-SHA-256: D377F40C215583E224CAE519455C348D402B7D7432438AD9CA1A7E47CF4FA9B2
+Sicherung: G:\DiscForge Studio 1.5\Entwicklungs-Backups\Dev14-SaarOSS-Link\20261110-162310
+Update-Ablauf: manueller Download von SaarOSS, lokale PrÃ¼fung im Update-Center.

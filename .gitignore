@@ -1,0 +1,14 @@
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+*.pdb
+publish/
+InstallerOutput*/
+Stabile-Sicherungen/
+*.partial
+*.tmp
+*.log
+Documentation/UpdateTests/
+Resources/DEV17-UpdateProbe.dat

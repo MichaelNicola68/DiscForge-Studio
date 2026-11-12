@@ -1,0 +1,16 @@
+name: Funktionswunsch
+description: Verbesserung vorschlagen
+title: "[Wunsch] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes: { label: Ausgangssituation }
+    validations: { required: true }
+  - type: textarea
+    id: proposal
+    attributes: { label: Vorgeschlagene Lösung }
+    validations: { required: true }
+  - type: textarea
+    id: usability
+    attributes: { label: Nutzen für die Bedienbarkeit }

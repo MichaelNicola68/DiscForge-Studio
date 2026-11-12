@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>DiscForgeStudio</AssemblyName>
+    <RootNamespace>DiscForgeStudio</RootNamespace>
+    <Version>1.5.0-alpha.2-dev.18</Version>
+    <AssemblyTitle>DiscForge Studio</AssemblyTitle>
+    <FileVersion>1.5.0.0</FileVersion>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+    <Authors>DiscForge Studio</Authors>
+    <Description>Diagnose optischer Laufwerke und Medien.</Description>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <InformationalVersion>1.5.0-alpha.2-dev.18</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Product>DiscForge Studio</Product>
+    <ApplicationIcon>Assets\DiscForgeStudio.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\DiscForgeStudio.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <!-- DEV15-INSTALLATIONSSIMULATION-TOOLS-EXCLUDE-V6 -->
+  <ItemGroup>
+    <Compile Remove="DiscForge-DEV15-Installationssimulation-*\**\*.cs" />
+    <EmbeddedResource Remove="DiscForge-DEV15-Installationssimulation-*\**\*" />
+    <None Remove="DiscForge-DEV15-Installationssimulation-*\**\*" />
+  </ItemGroup>  <ItemGroup><Compile Remove="UpdaterSource\**\*.cs" /><None Remove="UpdaterSource\**\*" /></ItemGroup>  <ItemGroup><Content Include="Resources\DEV17-UpdateProbe.dat"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory><CopyToPublishDirectory>Always</CopyToPublishDirectory></Content></ItemGroup></Project>
+

@@ -1,0 +1,7 @@
+﻿DiscForge Studio 1.5.0-alpha.2-dev.13
+Arbeitskopie aus dem stabilen Stand 1.5.0-alpha.2-dev.12
+Erstellt: 2026-11-09 16:55:14
+
+DEV12 bleibt unveraendert.
+Alte Build-Ausgaben bin, obj, publish und .vs wurden nicht kopiert.
+Die Sicherungsdatei *.vor-schutzreaktion.bak wurde nicht kopiert.

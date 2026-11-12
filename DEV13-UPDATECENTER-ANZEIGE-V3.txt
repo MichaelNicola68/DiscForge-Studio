@@ -1,0 +1,9 @@
+﻿DiscForge Studio DEV13 - Update-Center-Anzeige V3
+Installiert: 2026-11-09 17:16:51
+Version: 1.5.0-alpha.2-dev.13
+Alter Datei-SHA-256: 91565E5CE37FED26AC7FE4412F0BA23B429D68BBA990AAC346760BCEC2D7F2FB
+Neuer Datei-SHA-256: 914B3396C7D27C3607621B7E59816366187CAD813886E5CA12FFCC75D0BE6A79
+Neu deaktivierte Doppeldateien: 0
+Bereits deaktivierte Doppeldateien: 2
+Sicherung: G:\DiscForge Studio 1.5\Entwicklungs-Backups\Dev13-UpdateCenter-Anzeige-V3\20261109-171623
+Installation von Patchdateien im Update-Center bleibt gesperrt.

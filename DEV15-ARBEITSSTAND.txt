@@ -1,0 +1,7 @@
+﻿DiscForge Studio 1.5.0-alpha.2-dev.15
+Arbeitskopie aus dem stabilen Stand 1.5.0-alpha.2-dev.14
+Erstellt: 2026-11-10 16:47:21
+DEV14 bleibt unverÃ¤ndert.
+Ãœbernommen: Update-Center-Kompaktansicht, SaarOSS-Link, dynamische Versionsanzeige und Bedienungsanleitung 1.5.
+Nicht Ã¼bernommen: Build-Ausgaben, entpackte Patch- und Sicherungswerkzeuge, deaktivierte Doppeldateien.
+NÃ¤chstes Entwicklungsziel: Installations-Simulationsmodus fÃ¼r lokale Update-Pakete.

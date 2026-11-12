@@ -1,0 +1,6 @@
+DiscForge Studio 1.5.0-alpha.2-dev.18
+Created from stable checkpoint 1.5.0-alpha.2-dev.16
+Created: 2026-11-10 18:19:21
+DEV16 remains unchanged.
+Inherited: controlled installation, rollback, repeat protection, external updater, diagnostics and automatic restart.
+DEV17 target: controlled real program-file and EXE update plus preparation of a normal Windows installer.

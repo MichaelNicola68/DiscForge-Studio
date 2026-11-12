@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package UpgradeCode="A5E5B16A-9E41-4D56-8C79-70D2447A4C36" Compressed="yes" Id="SaarOSS.DiscForgeStudio" Manufacturer="Michael Nicola" Version="1.5.17.8" InstallerVersion="500" Name="DiscForge Studio 1.5.0-alpha.2-dev.18" Language="1031" Scope="perMachine">
+    <MajorUpgrade DowngradeErrorMessage="Eine neuere Version von DiscForge Studio ist bereits installiert." />
+    <MediaTemplate EmbedCab="yes" />
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="DiscForge Studio" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="DiscForge Studio" />
+    </StandardDirectory>
+    <StandardDirectory Id="DesktopFolder" />
+    <Feature Id="MainFeature" Title="DiscForge Studio" Level="1" AllowAbsent="no">
+      <ComponentGroupRef Id="ApplicationFiles" />
+      <ComponentRef Id="StartMenuShortcutComponent" />
+    </Feature>
+    <Feature Id="DesktopFeature" Title="Desktopverknuepfung" Description="Erstellt eine Verknuepfung auf dem Desktop." Level="2" AllowAbsent="yes">
+      <ComponentRef Id="DesktopShortcutComponent" />
+    </Feature>
+  </Package>
+</Wix>

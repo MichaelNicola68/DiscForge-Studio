@@ -1,0 +1,6 @@
+﻿DiscForge Studio 1.5.0-alpha.2-dev.16
+Working copy created from stable checkpoint 1.5.0-alpha.2-dev.15
+Created: 2026-11-10 17:29:00
+DEV15 remains unchanged.
+Inherited: installation simulation, UTF-8-correct test package, Update Center, documentation and safety checks.
+DEV16 target: controlled real update installation with backup, rollback, restart and failure recovery.
