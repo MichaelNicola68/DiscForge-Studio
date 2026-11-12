@@ -32,6 +32,8 @@ Die deutschsprachige SaarOSS-Projektseite verweist auf die offiziellen GitHub Re
 Copyright © 2026 Michael Nicola  
 Technische Unterstützung: Microsoft 365 Copilot
 
+www.saaross.de
+
 <img width="1166" height="1392" alt="001" src="https://github.com/user-attachments/assets/7900cdd9-8cf3-483c-bcb7-546b02e37987" />
 
 <img width="1166" height="1392" alt="001" src="https://github.com/user-attachments/assets/9010fe7c-1a81-4c0a-846f-22cbe7f6c585" />
