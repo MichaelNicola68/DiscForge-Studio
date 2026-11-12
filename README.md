@@ -30,3 +30,5 @@ Die deutschsprachige SaarOSS-Projektseite verweist auf die offiziellen GitHub Re
 
 Copyright © 2026 Michael Nicola  
 Technische Unterstützung: Microsoft 365 Copilot
+
+<img width="1166" height="1392" alt="07-windows-pe-rettungsmedium" src="https://github.com/user-attachments/assets/1c55d77c-2934-4065-8632-a3b3bac887c4" />
