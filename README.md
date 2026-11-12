@@ -11,7 +11,7 @@ DiscForge Studio ist eine deutschsprachige Open-Source-Anwendung für Windows zu
 - ISO-Werkstatt
 - Multisession-Unterstützung
 - Sitzungsverlauf und Berichte
-- sicheres Update-Center mit Simulation, externem Updater und Rollback
+- sicheres Update-Center mit Simulation, externer Updater und Rollback
 
 ## Installation
 
